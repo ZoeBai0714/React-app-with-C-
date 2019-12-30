@@ -75,6 +75,7 @@ in setting, search exclude files. this is like gitnore file
 (1)in terminal go into the level where you have the sln file, and git status
 (2)git init to create a repo
 (3)in root level, create a file .gitnore, add bin and other stuff in it (see in the file), and git add . commit
+(4) create a new repo on github and create a new repo with the command (the first one)
 ********************************************
 TWO Q TO GOOGLE ABOVE, search before move on
 
