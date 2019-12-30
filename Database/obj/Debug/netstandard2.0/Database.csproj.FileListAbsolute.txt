@@ -1,0 +1,12 @@
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Database/bin/Debug/netstandard2.0/Database.deps.json
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Database/bin/Debug/netstandard2.0/Database.dll
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Database/bin/Debug/netstandard2.0/Database.pdb
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Database/bin/Debug/netstandard2.0/Domain.dll
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Database/bin/Debug/netstandard2.0/Domain.pdb
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Database/obj/Debug/netstandard2.0/Database.csprojAssemblyReference.cache
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Database/obj/Debug/netstandard2.0/Database.csproj.CoreCompileInputs.cache
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Database/obj/Debug/netstandard2.0/Database.AssemblyInfoInputs.cache
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Database/obj/Debug/netstandard2.0/Database.AssemblyInfo.cs
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Database/obj/Debug/netstandard2.0/Database.csproj.CopyComplete
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Database/obj/Debug/netstandard2.0/Database.dll
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Database/obj/Debug/netstandard2.0/Database.pdb

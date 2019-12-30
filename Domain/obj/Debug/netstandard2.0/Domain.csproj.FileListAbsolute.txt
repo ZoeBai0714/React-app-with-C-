@@ -1,0 +1,9 @@
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Domain/bin/Debug/netstandard2.0/Domain.deps.json
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Domain/bin/Debug/netstandard2.0/Domain.dll
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Domain/bin/Debug/netstandard2.0/Domain.pdb
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Domain/obj/Debug/netstandard2.0/Domain.csprojAssemblyReference.cache
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Domain/obj/Debug/netstandard2.0/Domain.csproj.CoreCompileInputs.cache
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Domain/obj/Debug/netstandard2.0/Domain.AssemblyInfoInputs.cache
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Domain/obj/Debug/netstandard2.0/Domain.AssemblyInfo.cs
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Domain/obj/Debug/netstandard2.0/Domain.dll
+/Users/xuebai/Desktop/C# In Depth/React app with C#/Reactivities/Domain/obj/Debug/netstandard2.0/Domain.pdb
