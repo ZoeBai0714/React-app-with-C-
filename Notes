@@ -1,3 +1,6 @@
+BACKEND
+
+
 1.dotnet new sln
 created a solution file
 # what is sln file: An SLN file is a structure file used for organizing projects in Microsoft Visual Studio. It contains text-based information about the project environment and project state.
@@ -83,3 +86,13 @@ Logic:
 
 1. How are projects API, Application, Database and Domain related to each other?
 Domain is Model folder, the classes inside it are models we want to create, we run migration to create tables for the models, which are stoed in Database.
+
+
+
+
+
+
+
+FRONTEND---client side
+(19) root level npx create-react-app client-side --use-npm --typescript (so it supports typescript, if you have an exisiting react app, you can add typescript too, look here: https://create-react-app.dev/docs/adding-typescript/ ) 
+(20) use React class component in App.tsx to call api (to use hooks with typescript, see here:https://fettblog.eu/typescript-react/hooks/#usestate)
