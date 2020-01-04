@@ -58,7 +58,7 @@ dotnet ef migrations add InitialCreate(name) -p Database/ -s API/   stop the ser
     we can see reactivities.db file created on this level. pop up shell command and sqlite, open this file, we can see it in sqlite explorer
  
 16. seed data
-(1) Database/DataContext see some data (refer to the file)
+(1) Database/DataContext seed some data (refer to the file)
 (2) When we run migrations, it's gonna insert these data. In root project level, run dotnet ef migration add seedData -p Database/ -s API/
 (3) cd into API level, run dotnet watch run, we shall see the seeded data.
 
@@ -114,6 +114,17 @@ We will learn MediatR
 
 25. add activity entity
 in marketplace install C# extensions. right click on Domain folder, create a new C# class Activity, and create its' Properties (see in file)
+
 26. bring activity entity into database
 (1) in DataContext, create another DBSet<Activity>
 (2) do migration, stop the server, in terminal root level, dotnet ef migrations add "ActivityEntityAdded" -p Database/ -s API/
+
+27. see the activity data
+we will do this in a different way from last time(DbContext.onModelCreating(DbModelBuilder)), because we will have related data later, this will be a better way
+(1) in Database, create a new class seed using the same method as 25
+(2) create a method seedData (see in file)
+(3) use the prepared data snipit (download from author resources), and bring them in in seed.cs by typing S_3.3(which is the prefix of the data) (see in file)
+(4) inside the if statement, track the activity entities and save the changes
+(5) inside program.cs, seed the data by running the seedData method below migration. So now when the application run, it will seed the data.(see in file) It will generate the primary key with Guid
+    we can see the content by clicking right on Activity in SQLITE explorer and choose show table. Note blob (primary key) can not be displayed as text, so don't worry about it.
+    because sqlite doesn't support guid, so it's stored as blob

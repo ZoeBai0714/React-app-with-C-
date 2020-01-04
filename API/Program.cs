@@ -24,6 +24,7 @@ namespace API
                 {
                     var context = services.GetRequiredService<DataContext>();
                     context.Database.Migrate(); // it applies to any pending migration to datacontext in db, it will create db if it doesn't already exist.
+                    seed.seedData(context);
                 }
                 catch (Exception ex)
                 {
