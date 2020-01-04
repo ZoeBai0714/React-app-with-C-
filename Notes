@@ -94,15 +94,26 @@ Domain is Model folder, the classes inside it are models we want to create, we r
 
 
 FRONTEND---client side
-(19) root level npx create-react-app client-side --use-npm --typescript (so it supports typescript, if you have an exisiting react app, you can add typescript too, look here: https://create-react-app.dev/docs/adding-typescript/ ) 
-(20) use React class component in App.tsx to call api (to use hooks with typescript, see here:https://fettblog.eu/typescript-react/hooks/#usestate)
-     setup the initial state and set state after it mounts with componentDidMount
-(21) fetch API
-     use axios here to deal with asynchroize. In client side level, npm install axios;
-     import axios in App.tsx, and make the api call upon mount (see file), axios returns promise, so we use .then to chain them; 
-(23) solve CORS issue
-     in startup.cs Configure Service, add cors service, create policy to allow client site("http://localhost:3000") use the data. Now use the cors policy in Configure.(see in file). 
-     Once the data is successfully fetched, we can see from network that in the header there is access control allow origin 
-(24) implement semantic ui
+19. root level npx create-react-app client-side --use-npm --typescript (so it supports typescript, if you have an exisiting react app, you can add typescript too, look here: https://create-react-app.dev/docs/adding-typescript/ ) 
+20. use React class component in App.tsx to call api (to use hooks with typescript, see here:https://fettblog.eu/typescript-react/hooks/#usestate)
+    setup the initial state and set state after it mounts with componentDidMount
+21. fetch API
+    use axios here to deal with asynchroize. In client side level, npm install axios;
+    import axios in App.tsx, and make the api call upon mount (see file), axios returns promise, so we use .then to chain them; 
+23. solve CORS issue
+(1)in startup.cs Configure Service, add cors service, create policy to allow client site("http://localhost:3000") use the data. 
+(2)use the cors policy in Configure.(see in file). Once the data is successfully fetched, we can see from network that in the header there is access control allow origin 
+24. implement semantic ui
      in terminal npm install semantic-ui-react and add the link into our index.html <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />  see the documenation here:https://react.semantic-ui.com/usage/
      and use it for header
+
+
+CRUD
+In this section we will apply thin API, meaning move the logic in controller to somewhere else, also seed more data
+We will learn MediatR
+
+25. add activity entity
+in marketplace install C# extensions. right click on Domain folder, create a new C# class Activity, and create its' Properties (see in file)
+26. bring activity entity into database
+(1) in DataContext, create another DBSet<Activity>
+(2) do migration, stop the server, in terminal root level, dotnet ef migrations add "ActivityEntityAdded" -p Database/ -s API/
