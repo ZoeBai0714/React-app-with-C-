@@ -96,3 +96,9 @@ Domain is Model folder, the classes inside it are models we want to create, we r
 FRONTEND---client side
 (19) root level npx create-react-app client-side --use-npm --typescript (so it supports typescript, if you have an exisiting react app, you can add typescript too, look here: https://create-react-app.dev/docs/adding-typescript/ ) 
 (20) use React class component in App.tsx to call api (to use hooks with typescript, see here:https://fettblog.eu/typescript-react/hooks/#usestate)
+     setup the initial state and set state after it mounts with componentDidMount
+(21) fetch API
+     use axios here to deal with asynchroize. In client side level, npm install axios;
+     import axios in App.tsx, and make the api call upon mount (see file), axios returns promise, so we use .then to chain them; 
+(23) solve CORS issue
+     in startup.cs Configure Service, add cors service, create policy to allow client site("http://localhost:3000") use the data. Now use the cors policy in Configure.(see in file)
