@@ -1,27 +1,29 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import { Header, Icon } from "semantic-ui-react";
+import { List } from "semantic-ui-react";
 import "./App.css";
 import axios from "axios";
 class App extends Component {
-  state = { values: {} };
+  state = { values: [] };
 
   componentDidMount() {
     axios.get("http://localhost:5000/api/values").then(response => {
-      console.log({ response });
       this.setState({ values: response.data });
     });
   }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <ul>
-            {this.state.values.map((value: any) => (
-              <li>{value}</li>
-            ))}
-          </ul>
-        </header>
+        <Header as="h2" icon textAlign="center">
+          <Icon name="users" circular />
+          <Header.Content>Reactivities</Header.Content>
+        </Header>
+
+        <List>
+          {this.state.values.map((value: any) => (
+            <List.Item key={value.id}>{value.name}</List.Item>
+          ))}
+        </List>
       </div>
     );
   }
