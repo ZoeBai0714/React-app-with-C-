@@ -119,7 +119,7 @@ in marketplace install C# extensions. right click on Domain folder, create a new
 (1) in DataContext, create another DBSet<Activity>
 (2) do migration, stop the server, in terminal root level, dotnet ef migrations add "ActivityEntityAdded" -p Database/ -s API/
 
-27. see the activity data
+27. seed the activity data
 we will do this in a different way from last time(DbContext.onModelCreating(DbModelBuilder)), because we will have related data later, this will be a better way
 (1) in Database, create a new class seed using the same method as 25
 (2) create a method seedData (see in file)
@@ -128,3 +128,14 @@ we will do this in a different way from last time(DbContext.onModelCreating(DbMo
 (5) inside program.cs, seed the data by running the seedData method below migration. So now when the application run, it will seed the data.(see in file) It will generate the primary key with Guid
     we can see the content by clicking right on Activity in SQLITE explorer and choose show table. Note blob (primary key) can not be displayed as text, so don't worry about it.
     because sqlite doesn't support guid, so it's stored as blob
+
+28. create query handler(using MediatR)
+all of our handlers will be stored in Application project
+(1) add MediatR package. open nuget cmd+shift_p, search Mediatr, add MediatR.extensions.microsoft.dependencyInjection, choose the latest version, install in Application/Application.csproj, then restore(there will be a pop up)
+(2) delete the calss1.cs in Application. create a folder Activities, create a new class List in this folder
+(3) in List.cs, create Query Class, derived from IRequest (see in file), create Handler class, derived from IRequestHandler
+    Question: why do we need <> after interface
+(4) create constructor for handler, declare DataContext, make it private, readonly, pass in DataContext
+(5) make the this query async, get and return the activities from database
+
+29. create the API endpoint in controller for Activity

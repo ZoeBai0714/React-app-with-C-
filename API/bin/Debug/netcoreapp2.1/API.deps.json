@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "138b4ced7d4ec9c380480e1d24642eba91dfa035"
+    "signature": "45ae9460602ba15ca272c9d440b66cedfedb5568"
   },
   "compilationOptions": {
     "defines": [
@@ -34,6 +34,32 @@
         },
         "compile": {
           "API.dll": {}
+        }
+      },
+      "MediatR/5.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/MediatR.dll": {
+            "assemblyVersion": "5.1.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/MediatR.dll": {}
+        }
+      },
+      "MediatR.Extensions.Microsoft.DependencyInjectionFixed/5.1.2": {
+        "dependencies": {
+          "MediatR": "5.1.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MediatR.Extensions.Microsoft.DependencyInjection.dll": {
+            "assemblyVersion": "5.1.2.0",
+            "fileVersion": "5.1.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/MediatR.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
       "Microsoft.AspNetCore.Razor.Design/2.1.2": {},
@@ -475,7 +501,8 @@
       "Application/1.0.0": {
         "dependencies": {
           "Database": "1.0.0",
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "MediatR.Extensions.Microsoft.DependencyInjectionFixed": "5.1.2"
         },
         "runtime": {
           "Application.dll": {}
@@ -3369,6 +3396,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "MediatR/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Xt0a7rxi3L9Hqds8dATA+lLdo7k+g6vryACCDjzSRodXY7axISBhUOO0uY/94YN6aPw2sfBpBSF+t9gw2J2eLA==",
+      "path": "mediatr/5.1.0",
+      "hashPath": "mediatr.5.1.0.nupkg.sha512"
+    },
+    "MediatR.Extensions.Microsoft.DependencyInjectionFixed/5.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-93OmjCwew097+bxLSA9xJavQ0AYhHDmZDeh2Q09rxCuTeO9SKc/gtQledr0s42vHfl5yFgTRaffyMYG+989c2w==",
+      "path": "mediatr.extensions.microsoft.dependencyinjectionfixed/5.1.2",
+      "hashPath": "mediatr.extensions.microsoft.dependencyinjectionfixed.5.1.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
       "type": "package",
