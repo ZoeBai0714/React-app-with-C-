@@ -139,3 +139,11 @@ all of our handlers will be stored in Application project
 (5) make the this query async, get and return the activities from database
 
 29. create the API endpoint in controller for Activity
+(1) in API/Controller, create a new class ActivityController, derived from controllerBase (this is MVC controller without view support, because we are using React)
+(2) create the route (api/[controller]), add controller binding [ApiController] (reference:https://stackoverflow.com/questions/9494966/difference-between-apicontroller-and-controller-in-asp-net-mvc)
+(3) create its constructor, pass in IMediator interface, and initialze the field
+(4) create a GET endpoint, name the method List, send the List query method in List.cs
+(5) tell startup that we are using MediatR, configure this in dependencyInjection service, and import MediateR (see in file)
+(6) test in postman 
+
+30. add details in handler

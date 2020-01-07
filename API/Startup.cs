@@ -12,6 +12,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Database;
 using Microsoft.EntityFrameworkCore;
+using MediatR;
+using Application.Activities;
 namespace API
 {
     public class Startup
@@ -38,6 +40,7 @@ namespace API
                     policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();//WithOrigins("http:localhost:3000");
                 });
             });
+            services.AddMediatR(typeof(List.Handler).Assembly);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
