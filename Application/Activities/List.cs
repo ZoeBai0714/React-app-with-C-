@@ -7,7 +7,7 @@ using System.Threading;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Activities
-{
+{ 
     public class List
     {
         public class Query : IRequest<List<Activity>> { }//<List<Activity> is type parameter, it's placeholder, it identifies the type of the argument that will be passed in

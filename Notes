@@ -129,7 +129,9 @@ we will do this in a different way from last time(DbContext.onModelCreating(DbMo
     we can see the content by clicking right on Activity in SQLITE explorer and choose show table. Note blob (primary key) can not be displayed as text, so don't worry about it.
     because sqlite doesn't support guid, so it's stored as blob
 
-28. create query handler(using MediatR)
+################????################### (see reference: https://github.com/jbogard/MediatR/wiki)
+my understanding: IRequest handles the query, IRequestHandler returns the value of that query
+28. create query handler(using MediatR) for all activities (List)
 all of our handlers will be stored in Application project
 (1) add MediatR package. open nuget cmd+shift_p, search Mediatr, add MediatR.extensions.microsoft.dependencyInjection, choose the latest version, install in Application/Application.csproj, then restore(there will be a pop up)
 (2) delete the calss1.cs in Application. create a folder Activities, create a new class List in this folder
@@ -146,4 +148,12 @@ all of our handlers will be stored in Application project
 (5) tell startup that we are using MediatR, configure this in dependencyInjection service, and import MediateR (see in file)
 (6) test in postman 
 
-30. add details in handler
+30. create handler for one activity(Details)
+(1) in App/Activities create a new class Details
+(2) create a Query class derived from IRequest, return a single activity <Activity> (see in file)
+(3) create a handler for query, pass in the Query type and the Activity which is what we will return, and implement interface
+(4) create constructor for the handler, pass in DataContext
+(5) create another endpoint in Activity for Details, pass in id this time. Now we can test it in postman
+    at this point if we ask for a id that does not exist, the FindAsycn will return null, if we put something that is not Guid, we will get 400, because of the [ApiController]. We will have validation later
+
+31. CancellationToken
