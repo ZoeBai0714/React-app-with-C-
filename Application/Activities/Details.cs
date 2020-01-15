@@ -20,7 +20,8 @@ namespace Application.Activities
             {
                 this.context = context;
             }
-
+                                            
+            // Query below is from the template above, it returns one activity 
             public async Task<Activity> Handle(Query request, CancellationToken cancellationToken)
             {
                 var activity = await context.Activities.FindAsync(request.Id);// get id through request

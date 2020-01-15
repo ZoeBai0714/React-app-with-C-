@@ -130,7 +130,7 @@ we will do this in a different way from last time(DbContext.onModelCreating(DbMo
     because sqlite doesn't support guid, so it's stored as blob
 
 ################????################### (see reference: https://github.com/jbogard/MediatR/wiki)
-my understanding: IRequest handles the query, IRequestHandler returns the value of that query
+IRequestHandler is an interface, when we implement it, we will have have a method #Handle that has two parameters, one is Query object, another is CancellationToken.
 28. create query handler(using MediatR) for all activities (List)
 all of our handlers will be stored in Application project
 (1) add MediatR package. open nuget cmd+shift_p, search Mediatr, add MediatR.extensions.microsoft.dependencyInjection, choose the latest version, install in Application/Application.csproj, then restore(there will be a pop up)
@@ -157,3 +157,19 @@ all of our handlers will be stored in Application project
     at this point if we ask for a id that does not exist, the FindAsycn will return null, if we put something that is not Guid, we will get 400, because of the [ApiController]. We will have validation later
 
 31. CancellationToken
+we will not use it in our application, but it's good to know what it is.
+This is used to abort one request when the user decide to abort it, like refresh the page. So will gnot keep on going. See download resource lecture
+
+32. create handler
+(1) in  App/Activities create a new class create
+(2) create a class Command derived from IRequest, this time we will not return anything, because it's POST. We will only need to return a reponse so the client side knows it's succeessful 
+(3) copy paste all the property fields in Activity entity as we need all of them when we create an activity. Just like request.Id in Details Handle
+(4) create a class Handler , constructor is DbContext, implement interface
+(5) implement handler. The asynchroize method to create an activity. Return type <Unit>. Unit. It returns an empty entity that we will need to use for response
+(6) create an activity and add it into db. (see in file). return Unit if the save is succeessful, else throw problem. (see in file)
+
+33. create an endpoint for Create 
+(1) (see in file)
+(2) test from postman using module4  check the pre-request script because we are using guid and date in the post body.   
+
+34. boilerplate code for handlers to make efforts easier 
