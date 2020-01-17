@@ -131,6 +131,7 @@ we will do this in a different way from last time(DbContext.onModelCreating(DbMo
 
 ################????################### (see reference: https://github.com/jbogard/MediatR/wiki)
 IRequestHandler is an interface, when we implement it, we will have have a method #Handle that has two parameters, one is Query object, another is CancellationToken.
+Query is for GET, command is for POST
 28. create query handler(using MediatR) for all activities (List)
 all of our handlers will be stored in Application project
 (1) add MediatR package. open nuget cmd+shift_p, search Mediatr, add MediatR.extensions.microsoft.dependencyInjection, choose the latest version, install in Application/Application.csproj, then restore(there will be a pop up)
@@ -172,4 +173,30 @@ This is used to abort one request when the user decide to abort it, like refresh
 (1) (see in file)
 (2) test from postman using module4  check the pre-request script because we are using guid and date in the post body.   
 
-34. boilerplate code for handlers to make efforts easier 
+34. boilerplate code for handlers to make efforts easier ()
+we will create snippets for both of handler and command (code snippet ref: https://docs.microsoft.com/en-us/visualstudio/ide/code-snippets?view=vs-2019)
+(1) on the top of the screen, click Code, and preference => user snippets => new snippets file for Reactivities => name it "handlerSnippets"
+(2) google snippet generator, copy paste Query and Handler from Activity/List, description is "Query handler", tab trigger is "qhandler". 
+(3) at the buttom, it says to declare a placeholder ....., we will make our return value List<Activity> a place holder, so we will use the $ sign here.
+(4) replace all the <List<Activity>> with <${1:ReturnObject}>, remove the Handle method here.Copy and paste it in our snippet file
+
+
+(5) do the same for command, copy and paste Command and handler into generator, description would be Command Handler, tab trigger would be chandler
+(6) remove all the properties in this snippet as they will be different from every handler
+(7) remove all the properties and context.Activities.Add(activity);
+(8) copy and paste thie snippet into the handlerSnippets file.Add it after the first handle
+
+35. create edit handler
+(1) in  App/Activities create a new class Edit
+(2) use our code snippet by typing in chandler
+(3) we will need all the properties for an activity, copy and paste all the property fields from Create
+(4) write edit logic for edit: first we need to look for this activity by Guid and throw error if no such activity exist
+(5) compare the coming properties with the existing properties, because we only save the different one. Use null-coalescing operator here. if not null, it will be executed (ref:https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-coalescing-operator)
+!!IMPORTANT: Date by default can not be null, we will get an error here, so all we need to do is just to go to that property field, and change Date to optional by adding a ? after the DateTime type
+(6) the rest of the methods are the same(come from snippet), track the save, if success return Unit, throw error otherwise
+
+36. create an endpoint(Put) for edit
+(1) in Activity controller. Remember to pass in id
+(2) test in postman (grab the Id from an activity)
+
+37. create delete handler
