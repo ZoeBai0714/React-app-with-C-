@@ -187,7 +187,7 @@ we will create snippets for both of handler and command (code snippet ref: https
 (8) copy and paste thie snippet into the handlerSnippets file.Add it after the first handle
 
 35. create edit handler
-(1) in  App/Activities create a new class Edit
+(1) in  Application/Activities create a new class Edit
 (2) use our code snippet by typing in chandler
 (3) we will need all the properties for an activity, copy and paste all the property fields from Create
 (4) write edit logic for edit: first we need to look for this activity by Guid and throw error if no such activity exist
@@ -200,3 +200,10 @@ we will create snippets for both of handler and command (code snippet ref: https
 (2) test in postman (grab the Id from an activity)
 
 37. create delete handler
+(1) in Application/Activity create a new class Delete
+(2) create a command by type in chandler (see in file)
+(3) in the handler we need to know the Guid of the activity
+(4) in the handler logic, find this activity, if exist delete, and return Unit.value(which is empty)
+(5) add an endpoint in the controller
+(6) test in postman
+(7) delete unused import (if you want, I left them there for future reference)
