@@ -207,3 +207,9 @@ we will create snippets for both of handler and command (code snippet ref: https
 (5) add an endpoint in the controller
 (6) test in postman
 (7) delete unused import (if you want, I left them there for future reference)
+
+
+FRONTEND
+38.file structure. group files by features
+(1) in /src create two folders, app and feature. app is the app as a whole
+(2) in /app, create a folder layout. change index.css into styles.css and move it into layout, same to App.tsx
