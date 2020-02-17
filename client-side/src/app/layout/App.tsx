@@ -1,31 +1,30 @@
-import React, { Component } from "react";
-import { Header, Icon } from "semantic-ui-react";
-import { List } from "semantic-ui-react";
+import React, { useState, useEffect, Fragment } from "react";
+import NavBar from "../../feature/NavBar";
+import { List, Container } from "semantic-ui-react";
 import axios from "axios";
-class App extends Component {
-  state = { values: [] };
+import { IActivity } from "../models/activity";
 
-  componentDidMount() {
-    axios.get("http://localhost:5000/api/values").then(response => {
-      this.setState({ values: response.data });
+const App = () => {
+  const [activities, setActivities] = useState<IActivity[]>([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/activities").then(response => {
+      setActivities(response.data);
     });
-  }
-  render() {
-    return (
-      <div className="App">
-        <Header as="h2" icon textAlign="center">
-          <Icon name="users" circular />
-          <Header.Content>Reactivities</Header.Content>
-        </Header>
+  }, []);
 
+  return (
+    <Fragment>
+      <NavBar />
+      <Container style={{ marginTop: "7em" }}>
         <List>
-          {this.state.values.map((value: any) => (
-            <List.Item key={value.id}>{value.name}</List.Item>
+          {activities.map((activity: any) => (
+            <List.Item key={activity.id}>{activity.title}</List.Item>
           ))}
         </List>
-      </div>
-    );
-  }
-}
+      </Container>
+    </Fragment>
+  );
+};
 
 export default App;

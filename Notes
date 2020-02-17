@@ -213,3 +213,25 @@ FRONTEND
 38.file structure. group files by features
 (1) in /src create two folders, app and feature. app is the app as a whole
 (2) in /app, create a folder layout. change index.css into styles.css and move it into layout, same to App.tsx
+
+39. call get list of activities api
+(1) go into App.tsx, now the default is to get values using axio, change the api.
+(2) set the state with the data
+(3) add typescript --- add interface for activity, in app folder create a folder called models
+(4) create activity.tsx in this folder, write this interface (see in file)
+(5) define interface for state in App.tsx
+
+40. Refactor
+(1) change App.tsx into arrow function
+(2) replace state with hooks, and integrate typescript in (see in file)
+(3) replace componentDidMount with useEffect to fetch data
+
+41. Navigation bar
+(1) create NavBar.tsx file in feature folder. see file
+(2) use semantic ui (https://react.semantic-ui.com/collections/menu/)
+(3) replace the header in App.tsx with NavBar, and customize it
+(4) create asset folder and add pics from course file into assets folder
+(5) styling. edit style.css in layout folder
+(6) add a container around list of activities
+
+42. Activity dashboard
