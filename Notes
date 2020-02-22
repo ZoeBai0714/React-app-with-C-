@@ -235,3 +235,11 @@ FRONTEND
 (6) add a container around list of activities
 
 42. Activity dashboard
+(1) create a folder activities in feature, create another folder dashboard, and create a file in it ActivityDashboard.tsx
+(2) pass activities data from app to dashboard and use Grid to display activities. delete the activity list in App.tsx. see in file
+(3) we will have an error now, because we haven't define the type of the prop that we are passing down. Whenever we are passing props, we need to define it. 
+    do it in the ActivityDashboard file, IProps
+(4) in order to use the activities data, we need to give our ActivityDashboard const a type and that should be React.FC, which is react function component type 
+    and pass in IProps, and use activities as props.activities (see in file)
+
+43. create activity list
