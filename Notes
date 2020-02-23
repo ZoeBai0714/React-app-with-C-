@@ -242,4 +242,9 @@ FRONTEND
 (4) in order to use the activities data, we need to give our ActivityDashboard const a type and that should be React.FC, which is react function component type 
     and pass in IProps, and use activities as props.activities (see in file)
 
-43. create activity list
+43. create activity list component
+(1) create ActivityList.tsx/dashboard
+(2) use semantic item in View to display the activities. Replace the List in ActivityDashboard with this ActivityList. see in file
+(3) pass the activities data to ActivityList. Same as last ActivityDashboard, define iProps.
+
+44. display activity details
