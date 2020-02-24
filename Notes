@@ -248,3 +248,21 @@ FRONTEND
 (3) pass the activities data to ActivityList. Same as last ActivityDashboard, define iProps.
 
 44. display activity details
+(1) create a folder details in activities, create a file ActivityDetail.tsx in it
+(2) use semantic Card for this component. see in file
+(3) add a grid column in ActivityDashboard and bring in Detail component. see in file
+
+45. add activity form
+This form will allow us to creat and edit activities. We will use semantic formInput and formText
+(1) create a folder form in activities, create a file ActivityForm.tsx. Bring in it ActivityDetail.tsx. see in file
+
+46 select activities
+(1) add function to View Button. We should store our state in the parent component App.tsx. this selectedActivity should also be from IActivity as we are selecting activity object.
+(2) create a function handleSelectActivity that takes in id parameter, and pass this as a prop to ActivityDashboard in App.tsx
+(3) define the above prop in ActivityDashboard.tsx
+(4) after we define it in ActivityDashboard, pass it to ActivityList component, and we need to define this prop in ActivityList as well. use this function on Button
+(5) pass selectedActivity to ActivityDashboard compnent in App.tsx too. define this prop type in component. 
+(6) do the same to ActivityDetail component in ActivityDashboard.tsx, and use the data.
+(7) by now we will get an error in App.tsx that null is not assignable to IActivity. We can tell typescript(override type safty) that we gonna either pass in an activity or null by adding !. see in file. 
+    OR in ActivityDashboard iProps, we can say we will either get selectedActivity or null
+    in ActivityDashboard, only display this ActivityDetail when it's not null

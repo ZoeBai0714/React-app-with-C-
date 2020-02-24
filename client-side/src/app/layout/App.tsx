@@ -7,6 +7,13 @@ import ActivityDashBoard from "../../feature/activities/dashboard/ActivityDashBo
 
 const App = () => {
   const [activities, setActivities] = useState<IActivity[]>([]);
+  const [selectedActivity, setSelectedActivity] = useState<IActivity | null>(
+    null
+  );
+
+  const handleSelectActivity = (id: string) => {
+    setSelectedActivity(activities.filter(activity => activity.id === id)[0]);
+  };
 
   useEffect(() => {
     axios.get("http://localhost:5000/api/activities").then(response => {
@@ -18,7 +25,11 @@ const App = () => {
     <Fragment>
       <NavBar />
       <Container style={{ marginTop: "7em" }}>
-        <ActivityDashBoard activities={activities} />
+        <ActivityDashBoard
+          activities={activities}
+          selectActivity={handleSelectActivity}
+          selectedActivity={selectedActivity!}
+        />
       </Container>
     </Fragment>
   );

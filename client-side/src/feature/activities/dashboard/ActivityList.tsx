@@ -1,14 +1,15 @@
 import React from "react";
-import { Item, Button, Label, Segment } from "semantic-ui-react";
+import { Item, Button, Segment, Label } from "semantic-ui-react";
 import { IActivity } from "../../../app/models/activity";
 
 interface IProps {
   activities: IActivity[];
+  selectActivity: (id: string) => void;
 }
 
 //The clearing is for the float button
 const ActivityList: React.FC<IProps> = props => {
-  const { activities } = props;
+  const { activities, selectActivity } = props;
   return (
     <Segment clearing>
       <Item.Group divided>
@@ -22,9 +23,13 @@ const ActivityList: React.FC<IProps> = props => {
                 <div>{activity.venue}</div>
               </Item.Description>
               <Item.Extra>
-                <Button floated="right" content="View" color="blue">
-                  <Label content={activity.category} />
-                </Button>
+                <Button
+                  onClick={() => selectActivity(activity.id)}
+                  floated="right"
+                  content="View"
+                  color="blue"
+                />
+                <Label basic content={activity.category} />
               </Item.Extra>
             </Item.Content>
           </Item>
