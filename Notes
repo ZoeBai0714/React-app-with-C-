@@ -274,3 +274,14 @@ only display the form when we edit
 (3) condition rendering in ActivityDashboard.tsx
 (4) pass setEditMode to ActivityDetail, add it to its iProp.
 (5) attach setEditMode to edit button
+
+48 add create activity mode
+click create button and show default form (selectedActivity to null and editMode to true)
+(1) create a function handler to do the above in App.tsx, and pass it down to NavBar
+(2) create Iprops in NavBar, pass this function to the create button
+(3) create submit and cancle button in the form
+(4) add cancle function, turn off the form. pass setEditMode in ActivityForm. define its Iprops
+(5) pass down setSelectActivity down to ActivityDetail from App.tsx, so we can set it to null when we hit cancle button. add this in Iprops
+(6) pass it down to ActivityDetail, add this prop
+
+49 initialize form with data

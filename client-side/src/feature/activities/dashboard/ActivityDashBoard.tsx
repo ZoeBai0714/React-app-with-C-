@@ -11,6 +11,7 @@ interface IProps {
   selectedActivity: IActivity;
   editMode: boolean;
   setEditMode: (editMode: boolean) => void;
+  setSelectedActivity: (activity: IActivity | null) => void;
 }
 
 const ActivityDashBoard: React.FC<IProps> = props => {
@@ -19,7 +20,8 @@ const ActivityDashBoard: React.FC<IProps> = props => {
     selectActivity,
     selectedActivity,
     editMode,
-    setEditMode
+    setEditMode,
+    setSelectedActivity
   } = props;
 
   return (
@@ -32,9 +34,10 @@ const ActivityDashBoard: React.FC<IProps> = props => {
           <ActivityDetails
             activity={selectedActivity}
             setEditMode={setEditMode}
+            setSelectedActivity={setSelectedActivity}
           />
         )}
-        {editMode && <ActivityForm />}
+        {editMode && <ActivityForm setEditMode={setEditMode} />}
       </Grid.Column>
     </Grid>
   );
