@@ -6,9 +6,10 @@ import { IActivity } from "../../../app/models/activity";
 // button group make it evenly spaced
 interface IProps {
   activity: IActivity;
+  setEditMode: (editMode: boolean) => void;
 }
 const ActivityDetails: React.FC<IProps> = props => {
-  const { activity } = props;
+  const { activity, setEditMode } = props;
   return (
     <Card fluid>
       <Image src={`/assets/${activity.category}.jpg`} wrapped ui={false} />
@@ -21,7 +22,12 @@ const ActivityDetails: React.FC<IProps> = props => {
       </Card.Content>
       <Card.Content extra>
         <Button.Group widths={2}>
-          <Button basic color="blue" content="edit" />
+          <Button
+            basic
+            color="blue"
+            content="edit"
+            onClick={() => setEditMode(true)}
+          />
           <Button basic color="blue" content="cancle" />
         </Button.Group>
       </Card.Content>

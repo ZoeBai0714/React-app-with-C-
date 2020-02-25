@@ -266,3 +266,11 @@ This form will allow us to creat and edit activities. We will use semantic formI
 (7) by now we will get an error in App.tsx that null is not assignable to IActivity. We can tell typescript(override type safty) that we gonna either pass in an activity or null by adding !. see in file. 
     OR in ActivityDashboard iProps, we can say we will either get selectedActivity or null
     in ActivityDashboard, only display this ActivityDetail when it's not null
+
+47 add edit mode
+only display the form when we edit
+(1) define edit mode state in App.tsx we don't need to tell the type as we are simply using a boolean value. 
+(2) pass it to ActivityDashboard, and add this to Iprops in ActivityDashboard
+(3) condition rendering in ActivityDashboard.tsx
+(4) pass setEditMode to ActivityDetail, add it to its iProp.
+(5) attach setEditMode to edit button
