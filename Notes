@@ -285,3 +285,7 @@ click create button and show default form (selectedActivity to null and editMode
 (6) pass it down to ActivityDetail, add this prop
 
 49 initialize form with data
+(1) in ActivityDashboard, pass activity also down to ActivityForm. add this prop to Iprop
+(2) in ActivityForm, if this activity exist, the return it, otherwise return the activity structure (to map the form). see in file
+(3) pass it in hooks and pass the type, and use this activity value to the form
+(4) we will get an error for date, just change the IActivity model date type to string(for now)

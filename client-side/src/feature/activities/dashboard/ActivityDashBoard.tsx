@@ -37,7 +37,9 @@ const ActivityDashBoard: React.FC<IProps> = props => {
             setSelectedActivity={setSelectedActivity}
           />
         )}
-        {editMode && <ActivityForm setEditMode={setEditMode} />}
+        {editMode && (
+          <ActivityForm setEditMode={setEditMode} activity={selectedActivity} />
+        )}
       </Grid.Column>
     </Grid>
   );
