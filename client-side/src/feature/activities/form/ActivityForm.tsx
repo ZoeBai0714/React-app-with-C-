@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, FormEvent } from "react";
 import { Segment, Form, Button } from "semantic-ui-react";
 import { IActivity } from "../../../app/models/activity";
 
@@ -14,7 +14,7 @@ const ActivityForm: React.FC<Iprops> = props => {
       return initialFormState;
     } else {
       return {
-        id:"",
+        id: "",
         title: "",
         category: "",
         description: "",
@@ -25,19 +25,53 @@ const ActivityForm: React.FC<Iprops> = props => {
     }
   };
   const [activity, setActivity] = useState<IActivity>(initializeForm);
+  const handleChange = (
+    event: FormEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = event.currentTarget;
+    setActivity({ ...activity, [name]: value });
+  };
   return (
     <Segment clearing>
       <Form>
-        <Form.Input placeholder="Title" value={activity.title} />
+        <Form.Input
+          onChange={handleChange}
+          placeholder="Title"
+          name="title"
+          value={activity.title}
+        />
         <Form.TextArea
           rows={2}
+          name="description"
+          onChange={handleChange}
           placeholder="Description"
           value={activity.description}
         />
-        <Form.Input placeholder="Category" value={activity.category} />
-        <Form.Input type="date" placeholder="Date" value={activity.date} />
-        <Form.Input placeholder="City" value={activity.city} />
-        <Form.Input placeholder="Venue" value={activity.venue} />
+        <Form.Input
+          name="category"
+          onChange={handleChange}
+          placeholder="Category"
+          value={activity.category}
+        />
+        <Form.Input
+          name="date"
+          onChange={handleChange}
+          type="date"
+          placeholder="Date"
+          value={activity.date}
+        />
+        <Form.Input
+          name="city"
+          onChange={handleChange}
+          placeholder="City"
+          value={activity.city}
+        />
+        <Form.Input
+          name="venue"
+          onChange={handleChange}
+          placeholder="Venue"
+          value={activity.venue}
+        />
         <Button floated="right" positive type="submit" content="submit" />
         <Button
           floated="right"

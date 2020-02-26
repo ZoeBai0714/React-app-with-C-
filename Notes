@@ -289,3 +289,10 @@ click create button and show default form (selectedActivity to null and editMode
 (2) in ActivityForm, if this activity exist, the return it, otherwise return the activity structure (to map the form). see in file
 (3) pass it in hooks and pass the type, and use this activity value to the form
 (4) we will get an error for date, just change the IActivity model date type to string(for now)
+
+50 edit form
+(1) create a hanlder for input change. add name attribute for all the input. add this handler for all inputs
+(2) set the handleChange event type changeEvent (because if we hover over onChange, we can see the texts)
+(3) import Form event, chnaneg chanegEvent to from event, import it in
+
+51 handling submission
