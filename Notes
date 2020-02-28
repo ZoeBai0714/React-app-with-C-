@@ -295,4 +295,13 @@ click create button and show default form (selectedActivity to null and editMode
 (2) set the handleChange event type changeEvent (because if we hover over onChange, we can see the texts)
 (3) import Form event, chnaneg chanegEvent to from event, import it in
 
-51 handling submission
+51 handling submission from local state (not persist into db yet)
+(1) add hanldcreate and handleEditActivityin App.tsx.  pass them down to ActivityDashBoard see in file
+(2) add the two props into IProps of ActivityDashboard. Pass the two to ActivityForm, add into IProps.
+(3) add them to submit buttons. if id then we are editing otherwise creating. handlesubmit function. see in file
+(4) install uuid package, which allows us to create uniq id 
+(5) in ActivityForm, import uuid. we will get an error "xxxx implicitly has an any type", hover over, follow the instruction npm install @types/uuid. after this, the error will go away.
+(6) use uuid, when we create id, just use uuid().
+(7) update activity form detail upon submission, setSelectedactivity after editing and creating in App.tsx also set edit mode to false
+
+52 fix initial date data in the form

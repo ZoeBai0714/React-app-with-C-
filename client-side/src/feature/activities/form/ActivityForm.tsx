@@ -1,14 +1,22 @@
 import React, { useState, FormEvent } from "react";
 import { Segment, Form, Button } from "semantic-ui-react";
+import { v4 as uuid } from "uuid"; // we are using version 4
 import { IActivity } from "../../../app/models/activity";
 
 interface Iprops {
   setEditMode: (editMode: boolean) => void;
   activity: IActivity;
+  createActivity: (activity: IActivity) => void;
+  editActivity: (activity: IActivity) => void;
 }
 
 const ActivityForm: React.FC<Iprops> = props => {
-  const { setEditMode, activity: initialFormState } = props;
+  const {
+    setEditMode,
+    activity: initialFormState,
+    createActivity,
+    editActivity
+  } = props;
   const initializeForm = () => {
     if (initialFormState) {
       return initialFormState;
@@ -30,6 +38,18 @@ const ActivityForm: React.FC<Iprops> = props => {
   ) => {
     const { name, value } = event.currentTarget;
     setActivity({ ...activity, [name]: value });
+  };
+
+  const handleSubmit = () => {
+    if (activity.id.length === 0) {
+      let newActivity = {
+        ...activity,
+        id: uuid()
+      };
+      createActivity(newActivity);
+    } else {
+      editActivity(activity);
+    }
   };
   return (
     <Segment clearing>
@@ -72,7 +92,13 @@ const ActivityForm: React.FC<Iprops> = props => {
           placeholder="Venue"
           value={activity.venue}
         />
-        <Button floated="right" positive type="submit" content="submit" />
+        <Button
+          floated="right"
+          positive
+          type="submit"
+          content="submit"
+          onClick={handleSubmit}
+        />
         <Button
           floated="right"
           type="button"
