@@ -305,3 +305,11 @@ click create button and show default form (selectedActivity to null and editMode
 (7) update activity form detail upon submission, setSelectedactivity after editing and creating in App.tsx also set edit mode to false
 
 52 fix initial date data in the form
+(1) some other minor issues to fix before the data:
+    a. when we click view, the edit mode of the form is false. in App.tsx, handleSelectActivity setEditMode to false. so when we click view, it always display the activity (when we swith from create activity button to view)
+    b. when we click create activity, we want the form to be empty, instead of showing previous activity info. The reason it's doing so is because when we click create, the previous component is not unmounted, so the activity state didn't get update.
+       in ActivityDashboard, ActivityForm component, give it a key, once the key changed, update the state(That's how React works, if the props is different it will rerender). see in file.
+    c. change the data format UTC into readable format.  In ActivityForm.tsx, Date column, change the prop type value into "datetime-local", in App.tsx, before we set the activity, format the data first. See in App.tsx
+
+53 delete functionality
+    

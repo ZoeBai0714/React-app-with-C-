@@ -10,11 +10,10 @@ const App = () => {
   const [selectedActivity, setSelectedActivity] = useState<IActivity | null>(
     null
   );
-  console.log({ activities });
   const [editMode, setEditMode] = useState(false);
-
   const handleSelectActivity = (id: string) => {
     setSelectedActivity(activities.filter(activity => activity.id === id)[0]);
+    setEditMode(false);
   };
 
   const handleOpenCreateForm = () => {
@@ -35,9 +34,16 @@ const App = () => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/activities").then(response => {
-      setActivities(response.data);
-    });
+    axios
+      .get<IActivity[]>("http://localhost:5000/api/activities")
+      .then(response => {
+        let activities: IActivity[] = [];
+        response.data.forEach(activity => {
+          activity.date = activity.date.split(".")[0];
+          activities.push(activity);
+        });
+        setActivities(activities);
+      });
   }, []);
 
   return (
