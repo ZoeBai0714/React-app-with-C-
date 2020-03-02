@@ -5,11 +5,12 @@ import { IActivity } from "../../../app/models/activity";
 interface IProps {
   activities: IActivity[];
   selectActivity: (id: string) => void;
+  deleteActivity: (id: string) => void;
 }
 
 //The clearing is for the float button
 const ActivityList: React.FC<IProps> = props => {
-  const { activities, selectActivity } = props;
+  const { activities, selectActivity, deleteActivity } = props;
   return (
     <Segment clearing>
       <Item.Group divided>
@@ -28,6 +29,12 @@ const ActivityList: React.FC<IProps> = props => {
                   floated="right"
                   content="View"
                   color="blue"
+                />
+                <Button
+                  onClick={() => deleteActivity(activity.id)}
+                  floated="right"
+                  content="Delete"
+                  color="red"
                 />
                 <Label basic content={activity.category} />
               </Item.Extra>

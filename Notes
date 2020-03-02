@@ -312,4 +312,6 @@ click create button and show default form (selectedActivity to null and editMode
     c. change the data format UTC into readable format.  In ActivityForm.tsx, Date column, change the prop type value into "datetime-local", in App.tsx, before we set the activity, format the data first. See in App.tsx
 
 53 delete functionality
+(1) in App.tsx,  create handleDelete function. Pass it down to the list, add it to props.
+(2) create a delete button and attach the function to it. 
     
