@@ -315,3 +315,17 @@ click create button and show default form (selectedActivity to null and editMode
 (1) in App.tsx,  create handleDelete function. Pass it down to the list, add it to props.
 (2) create a delete button and attach the function to it. 
     
+
+Axios (persist data now)
+In this section, we will restructure our code, separate out the api calls
+axios vs fetch (built in with react)
+a. axios can catch error if the response is not good (so is saga), whereas fetcn cannot
+b. axios returns more than just data, it tells other useful info as well
+
+54 setup for typescript
+(1) create an api folder in app folder, create agent.ts (why ts => because we are not using React here, so no React JS)
+(2) import axios, and define some useful variables and our restful api
+(3) define the resulful api call 
+
+55 call get api
+(1) in App.tsx, replace the old get call
