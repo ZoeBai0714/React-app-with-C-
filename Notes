@@ -327,5 +327,13 @@ b. axios returns more than just data, it tells other useful info as well
 (2) import axios, and define some useful variables and our restful api
 (3) define the resulful api call 
 
-55 call get api
-(1) in App.tsx, replace the old get call
+55 call the apis
+(1) call get api =>in App.tsx, replace the old get call. see both in file and agent.ts
+(2) call create api =>in App.tsx, call this in handleCreateActivity. see in file
+(3) call edit api.
+(4) call delete api.
+
+56 add loading indicator
+(1) add a sleep function in agent.ts. add this function in the request.get, add another then to trigger the sleep  see in file
+(2) add this to edit, create, delete
+(3) add loading indicator !!!!!! start from here
