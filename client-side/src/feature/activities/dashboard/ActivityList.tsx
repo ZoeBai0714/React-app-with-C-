@@ -1,16 +1,24 @@
-import React from "react";
+import React, { SyntheticEvent } from "react";
 import { Item, Button, Segment, Label } from "semantic-ui-react";
 import { IActivity } from "../../../app/models/activity";
 
 interface IProps {
   activities: IActivity[];
   selectActivity: (id: string) => void;
-  deleteActivity: (id: string) => void;
+  deleteActivity: (e: SyntheticEvent<HTMLButtonElement>, id: string) => void;
+  submitting: boolean;
+  target: string;
 }
 
 //The clearing is for the float button
 const ActivityList: React.FC<IProps> = props => {
-  const { activities, selectActivity, deleteActivity } = props;
+  const {
+    activities,
+    selectActivity,
+    deleteActivity,
+    submitting,
+    target
+  } = props;
   return (
     <Segment clearing>
       <Item.Group divided>
@@ -31,7 +39,9 @@ const ActivityList: React.FC<IProps> = props => {
                   color="blue"
                 />
                 <Button
-                  onClick={() => deleteActivity(activity.id)}
+                  name={activity.id}
+                  loading={target === activity.id && submitting}
+                  onClick={event => deleteActivity(event, activity.id)}
                   floated="right"
                   content="Delete"
                   color="red"

@@ -337,3 +337,10 @@ b. axios returns more than just data, it tells other useful info as well
 (1) add a sleep function in agent.ts. add this function in the request.get, add another then to trigger the sleep  see in file
 (2) add this to edit, create, delete
 (3) add loading indicator !!!!!! start from here
+(4) build the indicator with semantic ui loader, create loadingComponent.tsx in layout. 
+(5) toggle loading stats in App.tsx, set loading to false after fetch activities, chain it up with another then.
+(6) add indicator when we submit. toggle the state in App.tsx, use this when we create, edit and delete activity.
+(7) pass this submitting state to the ActivityList.tsx and ActivityForm.tsx
+(8) add name, activity id to each button to identify themselves, pass in the id and the event onClick
+(9) toggle the e.target state in App.tsx, set the target name after submitting. pass the target to form, and conditional rendering loading
+(9) add loading to delete button and submit button

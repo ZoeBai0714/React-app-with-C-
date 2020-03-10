@@ -8,6 +8,7 @@ interface Iprops {
   activity: IActivity;
   createActivity: (activity: IActivity) => void;
   editActivity: (activity: IActivity) => void;
+  submitting: boolean;
 }
 
 const ActivityForm: React.FC<Iprops> = props => {
@@ -15,7 +16,8 @@ const ActivityForm: React.FC<Iprops> = props => {
     setEditMode,
     activity: initialFormState,
     createActivity,
-    editActivity
+    editActivity,
+    submitting,
   } = props;
   const initializeForm = () => {
     if (initialFormState) {
@@ -40,7 +42,7 @@ const ActivityForm: React.FC<Iprops> = props => {
     setActivity({ ...activity, [name]: value });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (id: string) => {
     if (activity.id.length === 0) {
       let newActivity = {
         ...activity,
@@ -93,11 +95,13 @@ const ActivityForm: React.FC<Iprops> = props => {
           value={activity.venue}
         />
         <Button
+          name={activity.id}
+          loading={submitting}
           floated="right"
           positive
           type="submit"
           content="submit"
-          onClick={handleSubmit}
+          onClick={() => handleSubmit(activity.id)}
         />
         <Button
           floated="right"
